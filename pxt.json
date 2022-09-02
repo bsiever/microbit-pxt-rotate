@@ -1,17 +1,15 @@
 {
-    "name": "microbit-pxt-i2cpins",
-    "version": "0.0.7",
-    "description": "Reroute External I2C Pins",
+    "name": "microbit-pxt-rotate",
+    "version": "0.0.1",
+    "description": "Rotate the screen",
     "license": "MIT",
     "dependencies": {
         "core": "*"
     },
     "files": [
         "README.md",
-        "i2crr.ts",
-        "i2crr.cpp",
-        "shims.d.ts",
-        "enums.d.ts"
+        "rotate.ts",
+        "rotate.cpp"
     ],
     "testFiles": [
         "test.ts"
@@ -29,7 +27,7 @@
         "Bill Siever <bsiever@gmail.com>"
     ],
     "card": {
-        "name": "Reroute External I2C pins",
+        "name": "Rotate Display",
         "imageUrl": "file:../icon.png",
         "feedbackUrl": "http://siever.info"
     }
