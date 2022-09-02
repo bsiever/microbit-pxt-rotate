@@ -12,7 +12,7 @@ namespace display {
         LogoToLeft = 3, 
     }
 
-    //% shim=rotate::_rotateTo
+    //% shim=display::_rotateTo
     function _rotateTo(dir: number) {
         // Per https://github.com/microsoft/pxt-microbit/issues/4292
         0;

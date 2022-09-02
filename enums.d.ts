@@ -1,5 +1,5 @@
 // Auto-generated. Do not edit.
-declare namespace rotate {
+declare namespace display {
 }
 
 // Auto-generated. Do not edit. Really.

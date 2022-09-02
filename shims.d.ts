@@ -14,7 +14,7 @@
      * Distributed as-is; no warranty is given.
      */
 
-declare namespace rotate {
+declare namespace display {
 }
 
 // Auto-generated. Do not edit. Really.
