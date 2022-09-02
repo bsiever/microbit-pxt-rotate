@@ -87,6 +87,8 @@ static  MatrixPoint upsidedown[5*5] =
     static NRF52Pin* ledColPins[5] = {&uBit.io.col1, &uBit.io.col2, &uBit.io.col3, &uBit.io.col4, &uBit.io.col5};
     static MatrixMap ledMatrixMap;
     // Display old instance
+    // Print a character (to do a waitForDisplay)
+    uBit.display.printChar(' ',0);
     uBit.display.~MicroBitDisplay(); 
 
     MatrixPoint *grid = normal;
