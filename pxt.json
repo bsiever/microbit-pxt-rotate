@@ -9,7 +9,9 @@
     "files": [
         "README.md",
         "rotate.ts",
-        "rotate.cpp"
+        "rotate.cpp",
+        "shims.d.ts",
+        "enums.d.ts"
     ],
     "testFiles": [
         "test.ts"

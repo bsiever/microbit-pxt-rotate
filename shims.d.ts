@@ -3,7 +3,7 @@
 
     /**
      * Bill Siever
-     * 2021-10-02 Initial Version
+     * 2022-09-01 Initial Version
      *
      * Development environment specifics:
      * Written in Microsoft PXT
@@ -14,7 +14,7 @@
      * Distributed as-is; no warranty is given.
      */
 
-declare namespace i2crr {
+declare namespace rotate {
 }
 
 // Auto-generated. Do not edit. Really.
