@@ -4,7 +4,7 @@
 pins=github:bsiever/microbit-pxt-rotate
 ```
 
-This extension allows screen orientation to be changed. 
+This extension allows screen orientation to be changed.  
 
 
 ```sig
@@ -15,6 +15,14 @@ Set the screen orientation.
 
 ### ~alert
 
+# Simulated Microbit
+
+Screen changes impact the real micro:bit, but not the simulated micro:bit.
+
+### ~
+
+### ~alert
+
 # Micro:bit V2 
 
 Changing the screen rotation on the micro:bit v2 will stop any active animations. For example, if words are scrolling across the scree they will stop and be abandoned as soon as the rotation block executes. 
@@ -22,6 +30,29 @@ Changing the screen rotation on the micro:bit v2 will stop any active animations
 ### ~
 
 
+# Example 
+
+The following program will show the behavior of rotating the display on a real micro:bit. Hold the micro:bit with the logo pointed skyward.  It will continually scoll an icon and words across the screen.  It will adjust as you rotate the micro:bit clockwise or counter clockwise (logo to the left, logo to the right, and logo down).
+
+```block
+basic.forever(function () {
+    basic.showIcon(IconNames.Heart)
+    basic.showString("Hello World!")
+})
+
+basic.forever(function () {
+    if (input.acceleration(Dimension.X) < -800) {
+        display.rotateTo(display.Direction.LogoToLeft)
+    } else if (input.acceleration(Dimension.X) > 800) {
+        display.rotateTo(display.Direction.LogoToRight)
+    } else if (input.acceleration(Dimension.Y) < -800) {
+        display.rotateTo(display.Direction.UpsideDown)
+    } else if (input.acceleration(Dimension.Y) > 800) {
+        display.rotateTo(display.Direction.Normal)
+    }
+    basic.pause(500)
+})
+```
 
 # Acknowledgements 
 
