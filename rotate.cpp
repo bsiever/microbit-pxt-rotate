@@ -22,7 +22,7 @@ namespace rotate {
     
    //%
    void rotateTo(int direction) {
-    if(dirction<0 || direction>3) direction = 0;
+    if(direction<0 || direction>3) direction = 0;
 
     /*
      MATRIX_DISPLAY_ROTATION_0,
@@ -30,6 +30,6 @@ namespace rotate {
         MATRIX_DISPLAY_ROTATION_180,
         MATRIX_DISPLAY_ROTATION_270
         */
-       uBit.display.rotateTo(direction);
+       uBit.display.rotateTo((DisplayRotation)direction);
    }
 }
