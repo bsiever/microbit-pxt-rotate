@@ -30,6 +30,10 @@ namespace rotate {
         MATRIX_DISPLAY_ROTATION_180,
         MATRIX_DISPLAY_ROTATION_270
         */
+#if MICROBIT_CODAL
+
+#else
        uBit.display.rotateTo((DisplayRotation)direction);
-   }
+#endif   
+    }
 }
