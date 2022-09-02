@@ -1,26 +1,34 @@
 # i2c2
 
 ```package
-pins=github:bsiever/microbit-pxt-i2cpins
+pins=github:bsiever/microbit-pxt-rotate
 ```
 
-This extension allows non-default pins to be used for the micro:bit's I2C
+This extension allows screen orientation to be changed. 
 
-**Micro:bit v1 only has one I2C port. Changing the pins will prevent the accelerometer/compass from working!!!**
-
-# Setting the pins
 
 ```sig
-pins.setI2CPins(sda : DigitalPin,  scl : DigitalPin) : void
+rotate.rotateTo(direction: Direction) : void
 ```
 
-Set the Data and Clock pins.
+Set the screen orientation.
+
 
 # Acknowledgements 
 
-Development of this extension was sponsored by [MakeKit](https://www.makekit.no/).
+Icon based on [Font Awesome icon 0xF021](https://www.iconfinder.com/search?q=f021) SVG.
 
-Icon based on [Font Awesome icon 0xF074](https://www.iconfinder.com/icons/213043/f074_icon) SVG.
+# Misc. 
+
+I develop micro:bit extensions in my spare time to support activities I'm enthusiastic about, like summer camps and science curricula.  You are welcome to become a sponsor of my micro:bit work (one time or recurring payments), which helps offset equipment costs: [here](https://github.com/sponsors/bsiever). Any support at all is greatly appreciated!
+
+## Supported targets
+
+for PXT/microbit
+
+```package
+microbit-pxt-rotate=github:bsiever/microbit-pxt-rotate
+```
 
 <script src="https://makecode.com/gh-pages-embed.js"></script>
 <script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>

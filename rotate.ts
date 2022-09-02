@@ -1,7 +1,7 @@
 
 
 //% color=#000033 
-//% icon="\uf074"
+//% icon="\uf021"
 //% block="Display Rotate"
 //% group="micro:bit (V2)"
 namespace rotate {
@@ -13,11 +13,15 @@ namespace rotate {
         LogoLeft = 3, 
     }
 
+    function _rotateTo(dir: int) {
+        // Per https://github.com/microsoft/pxt-microbit/issues/4292
+        0;
+    }
+
     //% blockId="rotateTo" block="rotate display to %direction"
     //% shim=rotate::rotateTo
     //% group="micro:bit (V2)"
     export function rotateTo(direction: Direction) : void {
-        // Per https://github.com/microsoft/pxt-microbit/issues/4292
-        0;
+        _rotateTo(direction)
     }
 }

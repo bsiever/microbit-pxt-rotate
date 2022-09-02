@@ -21,7 +21,7 @@ using namespace pxt;
 namespace rotate { 
     
    //%
-   void rotateTo(int direction) {
+   void _rotateTo(int direction) {
     if(direction<0 || direction>3) direction = 0;
 
     /*
