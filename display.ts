@@ -6,10 +6,14 @@
 namespace display {
 
     export enum Direction {
+        //% block="normal"
         Normal = 0,
+        //% block="logo to right"
         LogoToRight = 1,
+        //% block="upside down"
         UpsideDown = 2,
-        LogoToLeft = 3, 
+        //% block="logo to left"
+        LogoToLeft = 3,
     }
 
     //% shim=display::_rotateTo
