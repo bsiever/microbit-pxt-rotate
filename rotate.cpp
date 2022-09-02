@@ -26,7 +26,13 @@ namespace rotate {
 
    //%
    void _rotateTo(int direction) {
+    static int lastDirection = 0;
     if(direction<0 || direction>3) direction = 0;
+    // If not changed, return
+    if(lastDirection == direction) {
+        return;
+    }
+    lastDirection = direction;
 
     /*
      MATRIX_DISPLAY_ROTATION_0,
