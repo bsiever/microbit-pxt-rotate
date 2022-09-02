@@ -8,8 +8,8 @@
     },
     "files": [
         "README.md",
-        "rotate.ts",
-        "rotate.cpp",
+        "display.ts",
+        "display.cpp",
         "shims.d.ts",
         "enums.d.ts"
     ],

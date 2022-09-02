@@ -1,4 +1,4 @@
-# i2c2
+# Rotate Display
 
 ```package
 pins=github:bsiever/microbit-pxt-rotate
@@ -8,7 +8,7 @@ This extension allows screen orientation to be changed.
 
 
 ```sig
-rotate.rotateTo(direction: Direction) : void
+display.rotateTo(direction: display.Direction) : void
 ```
 
 Set the screen orientation.

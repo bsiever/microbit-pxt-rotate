@@ -2,14 +2,14 @@
 
 //% color=#000033 
 //% icon="\uf021"
-//% block="Display Rotate"
-namespace rotate {
+//% block="Rotate display"
+namespace display {
 
     export enum Direction {
         Normal = 0,
-        LogoRight = 1,
+        LogoToRight = 1,
         UpsideDown = 2,
-        LogoLeft = 3, 
+        LogoToLeft = 3, 
     }
 
     //% shim=rotate::_rotateTo
