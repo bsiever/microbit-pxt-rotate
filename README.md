@@ -13,6 +13,15 @@ display.rotateTo(direction: display.Direction) : void
 
 Set the screen orientation.
 
+### ~alert
+
+# Micro:bit V2 
+
+Changing the screen rotation on the micro:bit v2 will stop any active animations. For example, if words are scrolling across the scree they will stop and be abandoned as soon as the rotation block executes. 
+
+### ~
+
+
 
 # Acknowledgements 
 
