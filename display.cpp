@@ -76,30 +76,26 @@ static  MatrixPoint upsidedown[5*5] =
     // Get pins
     static NRF52Pin* ledRowPins[5] = {&uBit.io.row1, &uBit.io.row2, &uBit.io.row3, &uBit.io.row4, &uBit.io.row5};
     static NRF52Pin* ledColPins[5] = {&uBit.io.col1, &uBit.io.col2, &uBit.io.col3, &uBit.io.col4, &uBit.io.col5};
-    static MatrixMap ledMatrixMap;
+    static MatrixMap ledMatrixMap[4] = 
+    {
+        {5, 5, 5, 5, (Pin**)ledRowPins, (Pin**)ledColPins, normal},
+        {5, 5, 5, 5, (Pin**)ledRowPins, (Pin**)ledColPins, logoright},
+        {5, 5, 5, 5, (Pin**)ledRowPins, (Pin**)ledColPins, upsidedown},
+        {5, 5, 5, 5, (Pin**)ledRowPins, (Pin**)ledColPins, logoleft},
+
+    };
     // Display old instance
     // Stop animations (to avoid retained objects)
     uBit.display.stopAnimation();
-//    uBit.display.printChar(' ',0);
-    uBit.display.~MicroBitDisplay(); 
-
-    MatrixPoint *grid = normal;
-    switch(direction) {
-        case 1: // LogoRight
-            grid = logoright;
-        break;
-        case 2: // UpsideDown
-            grid = upsidedown;
-        break;
-        case 3: // LogoLeft
-            grid = logoleft;
-        break;
-        default: 
-            //Nothing. normal is default
-        break;
-    }
-    ledMatrixMap = {5, 5, 5, 5, (Pin**)ledRowPins, (Pin**)ledColPins, grid};
-    new (&uBit.display) MicroBitDisplay(ledMatrixMap);
+    static MicroBitDisplay displays[4] = {
+        uBit.display,
+        MicroBitDisplay(ledMatrixMap[1]),
+        MicroBitDisplay(ledMatrixMap[2]),
+        MicroBitDisplay(ledMatrixMap[3])
+    };
+    uBit.display.disable();
+    memcpy((void*)&uBit.display, (void*)&displays[direction], sizeof(MicroBitDisplay));
+    uBit.display.enable();
 #else
        uBit.display.rotateTo((DisplayRotation)direction);
 #endif   
