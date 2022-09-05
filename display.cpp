@@ -21,11 +21,11 @@ namespace display {
    //%
    void _rotateTo(int direction) {
     /*
-    MATRIX_DISPLAY_ROTATION_0,
-    MATRIX_DISPLAY_ROTATION_90,
-    MATRIX_DISPLAY_ROTATION_180,
-    MATRIX_DISPLAY_ROTATION_270
+      MATRIX_DISPLAY_ROTATION_0,
+      MATRIX_DISPLAY_ROTATION_90,
+      MATRIX_DISPLAY_ROTATION_180,
+      MATRIX_DISPLAY_ROTATION_270
     */
-       uBit.display.rotateTo((DisplayRotation)direction);
+      uBit.display.rotateTo((DisplayRotation)direction);
     }
 }
