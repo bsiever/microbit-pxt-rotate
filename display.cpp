@@ -19,23 +19,10 @@
 using namespace pxt;
 
 namespace display { 
-    
-   //%
-   void _rotateTo(int direction) {
-    static int lastDirection = 0;
-    if(direction<0 || direction>3) direction = 0;
-    // If not changed, return
-    if(lastDirection == direction) {
-        return;
-    }
-    lastDirection = direction;
 
-    /*
-     MATRIX_DISPLAY_ROTATION_0,
-        MATRIX_DISPLAY_ROTATION_90,
-        MATRIX_DISPLAY_ROTATION_180,
-        MATRIX_DISPLAY_ROTATION_270
-        */
+    static int direction = 0;
+
+
 #if MICROBIT_CODAL
 static  MatrixPoint normal[5*5] =
 {
@@ -84,18 +71,52 @@ static  MatrixPoint upsidedown[5*5] =
         {5, 5, 5, 5, (Pin**)ledRowPins, (Pin**)ledColPins, logoleft},
 
     };
-    // Display old instance
-    // Stop animations (to avoid retained objects)
-    uBit.display.stopAnimation();
+
     static MicroBitDisplay displays[4] = {
         uBit.display,
         MicroBitDisplay(ledMatrixMap[1]),
         MicroBitDisplay(ledMatrixMap[2]),
         MicroBitDisplay(ledMatrixMap[3])
     };
-    uBit.display.disable();
+
+    static NRFLowLevelTimer *theTimer = NULL;
+
+    static void update_dispatch(uint16_t mask) {
+        displays[direction].render();
+    }
+#endif
+
+   //%
+   void _rotateTo(int newDirection) {
+    if(newDirection<0 || newDirection>3) newDirection = 0;
+    // If not changed, return
+    if(direction == newDirection) {
+        return;
+    }
+    direction = newDirection;
+
+    /*
+     MATRIX_DISPLAY_ROTATION_0,
+        MATRIX_DISPLAY_ROTATION_90,
+        MATRIX_DISPLAY_ROTATION_180,
+        MATRIX_DISPLAY_ROTATION_270
+        */
+#if MICROBIT_CODAL
+    // Stop animations (to avoid retained objects)
+    uBit.display.stopAnimation();
+//    uBit.display.disable();
+
+    if(theTimer) {
+        theTimer->disable();
+        delete theTimer;
+    }
+    theTimer = new NRFLowLevelTimer(NRF_TIMER4, TIMER4_IRQn);
+    theTimer->timer_pointer = update_dispatch;
+
     memcpy((void*)&uBit.display, (void*)&displays[direction], sizeof(MicroBitDisplay));
-    uBit.display.enable();
+    theTimer->enable();
+    theTimer->enableIRQ();
+//    uBit.display.enable();
 #else
        uBit.display.rotateTo((DisplayRotation)direction);
 #endif   

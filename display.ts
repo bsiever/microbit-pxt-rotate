@@ -27,3 +27,5 @@ namespace display {
         _rotateTo(direction)
     }
 }
+// Set default direction
+//display.rotateTo(display.Direction.Normal)
