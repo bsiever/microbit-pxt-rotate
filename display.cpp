@@ -12,7 +12,6 @@
 */
 
 #include "pxt.h"
-#include "MicroBitI2C.h"
 #include "MicroBit.h"
 
 
@@ -99,6 +98,17 @@ static  MatrixPoint upsidedown[5*5] =
         break;
     }
     ledMatrixMap = {5, 5, 5, 5, (Pin**)ledRowPins, (Pin**)ledColPins, grid};
+    static NRFLowLevelTimer *timerPointer = NULL;
+
+    if(timerPointer)
+        delete timerPointer;
+    // Get address that will be used for timer object...so we can manually capture the memory and release it 
+    // Fix error due to memory leak in https://github.com/lancaster-university/codal-microbit-v2/blob/111e4cf829fdfea25e301375643d1bad71fb7070/source/MicroBitDisplay.cpp#L43%C2%A0
+    // NOTE: THIS IS HORRIBLE.  THIS SHOULD NEVER BE DONE. 
+    // Allocate and delete an object to see where it will be allocated next.   
+    // Store in static variable and delete on next execution (before replacement)
+    timerPointer = new NRFLowLevelTimer(NRF_TIMER4, TIMER4_IRQn);
+    delete timerPointer;
     new (&uBit.display) MicroBitDisplay(ledMatrixMap);
 #else
        uBit.display.rotateTo((DisplayRotation)direction);
