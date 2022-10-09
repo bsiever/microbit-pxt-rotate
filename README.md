@@ -19,17 +19,6 @@ Set the screen orientation.
 
 Screen changes impact the real micro:bit, but not the simulated micro:bit.
 
-### ~
-
-### ~alert
-
-# Micro:bit V2 
-
-Changing the screen rotation on the micro:bit v2 will stop any active animations. For example, if words are scrolling across the scree they will stop and be abandoned as soon as the rotation block executes. 
-
-### ~
-
-
 # Example 
 
 The following program will show the behavior of rotating the display on a real micro:bit. Hold the micro:bit with the logo pointed skyward.  It will continually scoll an icon and words across the screen.  It will adjust as you rotate the micro:bit clockwise or counter clockwise (logo to the left, logo to the right, and logo down).
@@ -55,6 +44,8 @@ basic.forever(function () {
 ```
 
 # Acknowledgements 
+
+Many thanks to Martin Williams for updating CODAL to include `rotateTo()` support (I only did line of code.  Martin did the hard work. See [PR](https://github.com/lancaster-university/codal-microbit-v2/pull/227))!
 
 Icon based on [Font Awesome icon 0xF021](https://www.iconfinder.com/search?q=f021) SVG.
 
