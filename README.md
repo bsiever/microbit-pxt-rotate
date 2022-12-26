@@ -19,6 +19,8 @@ Set the screen orientation.
 
 Screen changes impact the real micro:bit, but not the simulated micro:bit.
 
+~
+
 # Example 
 
 The following program will show the behavior of rotating the display on a real micro:bit. Hold the micro:bit with the logo pointed skyward.  It will continually scoll an icon and words across the screen.  It will adjust as you rotate the micro:bit clockwise or counter clockwise (logo to the left, logo to the right, and logo down).
