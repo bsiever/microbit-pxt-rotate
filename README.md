@@ -19,7 +19,7 @@ Set the screen orientation.
 
 Screen changes impact the real micro:bit, but not the simulated micro:bit.
 
-~
+### ~
 
 # Example 
 
